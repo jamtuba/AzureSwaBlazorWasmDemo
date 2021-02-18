@@ -18,6 +18,7 @@ namespace Client
             builder.RootComponents.Add<App>("#app");
 
             var baseAddress = builder.Configuration["baseAddress"] ?? builder.HostEnvironment.BaseAddress;
+            var _ = builder.Configuration["TestValue"] ?? "Hello";
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(baseAddress) });
 
             await builder.Build().RunAsync();

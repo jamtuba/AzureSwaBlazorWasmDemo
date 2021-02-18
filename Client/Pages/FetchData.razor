@@ -1,9 +1,13 @@
 ﻿@page "/fetchdata"
 @inject HttpClient Http
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration _config
 
 <h1>Weather forecast</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
+
+<h1>@_config["TestValue"]</h1>
 
 @if (forecasts == null)
 {
@@ -36,6 +40,8 @@ else
 
 @code {
     private WeatherForecast[] forecasts;
+
+    private string FromConfiguration = "Fejl!";
 
     protected override async Task OnInitializedAsync()
     {
