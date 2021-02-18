@@ -7,7 +7,7 @@
 
 <p>This component demonstrates fetching data from the server.</p>
 
-<h1>@_config["TestValue"]</h1>
+<h1>@(_config["TestValue"] ?? "Hello I´m Empty!")</h1>
 
 @if (forecasts == null)
 {
